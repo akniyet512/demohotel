@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:demohotel/app/app_notifier.dart';
 import 'package:demohotel/app/app_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:demohotel/utilities/my_http_overrides.dart';
@@ -15,6 +16,8 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
   //removes # in root route
   setPathUrlStrategy();
+  //hive init
+  await Hive.initFlutter();
   //model init
   final AppNotifier model = AppNotifier();
 
